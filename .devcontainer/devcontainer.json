@@ -23,5 +23,8 @@
   },
   "forwardPorts": [8888],
   "remoteUser": "vscode",
+  "remoteEnv": {
+    "R_LIBS_USER": "/home/vscode/R/library"
+  },
   "postCreateCommand": "mkdir -p ~/R/library && echo 'R_LIBS_USER=\"~/R/library\"' >> ~/.Renviron && Rscript -e \"dir.create(Sys.getenv('R_LIBS_USER'), recursive=TRUE); .libPaths(Sys.getenv('R_LIBS_USER')); install.packages(c('IRkernel','languageserver','ggplot2','dplyr','tidyr'), repos='https://cloud.r-project.org'); IRkernel::installspec(user=FALSE)\""
 }
